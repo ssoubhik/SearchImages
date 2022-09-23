@@ -21,6 +21,7 @@
 		E73E87AB28DDFB2E00179303 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E87AA28DDFB2E00179303 /* ErrorHandler.swift */; };
 		E73E87B028DDFD8600179303 /* StaticText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E87AF28DDFD8600179303 /* StaticText.swift */; };
 		E73E87B328DE041D00179303 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E87B228DE041D00179303 /* StringExtension.swift */; };
+		E73E87B628DE33A700179303 /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E87B528DE33A700179303 /* ImageLoaderService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		E73E87AF28DDFD8600179303 /* StaticText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticText.swift; sourceTree = "<group>"; };
 		E73E87B228DE041D00179303 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		E73E87B428DE089A00179303 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E73E87B528DE33A700179303 /* ImageLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,12 +74,12 @@
 		E73E877C28DDB51A00179303 /* SearchImage */ = {
 			isa = PBXGroup;
 			children = (
-				E73E87B428DE089A00179303 /* Info.plist */,
 				E73E877D28DDB51A00179303 /* SearchImageApp.swift */,
 				E73E879328DDBC4E00179303 /* Features */,
 				E73E879C28DDE23D00179303 /* Utils */,
 				E73E879028DDBBAF00179303 /* Constants */,
 				E73E878128DDB51C00179303 /* Assets.xcassets */,
+				E73E87B428DE089A00179303 /* Info.plist */,
 				E73E878328DDB51C00179303 /* Preview Content */,
 			);
 			path = SearchImage;
@@ -181,8 +183,9 @@
 		E73E87AE28DDFB7600179303 /* CacheImage */ = {
 			isa = PBXGroup;
 			children = (
-				E73E87A528DDED6B00179303 /* ImageLoaderViewModel.swift */,
 				E73E87A728DDEDA700179303 /* URLImage.swift */,
+				E73E87A528DDED6B00179303 /* ImageLoaderViewModel.swift */,
+				E73E87B528DE33A700179303 /* ImageLoaderService.swift */,
 			);
 			path = CacheImage;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				E73E879B28DDCF0100179303 /* GalleryView.swift in Sources */,
 				E73E87B328DE041D00179303 /* StringExtension.swift in Sources */,
 				E73E87AB28DDFB2E00179303 /* ErrorHandler.swift in Sources */,
+				E73E87B628DE33A700179303 /* ImageLoaderService.swift in Sources */,
 				E73E877E28DDB51A00179303 /* SearchImageApp.swift in Sources */,
 				E73E878F28DDB77200179303 /* SearchModel.swift in Sources */,
 			);

@@ -26,6 +26,7 @@ struct GalleryView: View {
                 ProgressView()
             case .success(let data):
                 if data.isEmpty {
+                    // no results found
                     Text(StaticText.noResults)
                 } else {
                     ScrollView {

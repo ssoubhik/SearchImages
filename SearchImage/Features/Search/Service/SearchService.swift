@@ -13,13 +13,6 @@ protocol SearchService {
     func fetchSearchResults(_ searchTerm: String) async throws -> [Result]
 }
 
-
-// MARK: - Network Error Enumeration
-
-enum NetworkError: Error {
-    case invalidUrl
-}
-
 // MARK: - Search Service Implementation
 
 final class SearchServiceImpl: SearchService {
@@ -40,7 +33,7 @@ final class SearchServiceImpl: SearchService {
         
         // url
         guard let url = urlComponents?.url else {
-            throw NetworkError.invalidUrl
+            return []
         }
         
         let (data, _) = try await urlSession.data(from: url)

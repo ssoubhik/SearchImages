@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  SearchView.swift
 //  SearchImage
 //
 //  Created by Soubhik Sarkhel on 23/09/22.
@@ -28,7 +28,7 @@ struct SearchView: View {
 
                 // programatic navigation to gallery view
                 NavigationLink(isActive: $isNavigationActive) {
-                    // result view
+                    // gallery view
                     GalleryView(searchVM: searchVM)
                 } label: {
                     // search button

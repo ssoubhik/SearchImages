@@ -10,7 +10,7 @@ import SwiftUI
 // MARK: - URL Image View
 
 struct URLImage: View {
-    @StateObject private var imageLoaderVM = ImageLoaderViewModel()
+    @StateObject private var imageLoaderVM = ImageLoaderViewModelImpl(service: ImageLoaderServiceImpl())
     
     let urlString: String
     
@@ -32,16 +32,8 @@ struct URLImage: View {
         }
         .aspectRatio(1.0, contentMode: .fit)
         .task {
-            // downloading image
-            await downloadImage()
-        }
-    }
-    
-    private func downloadImage() async {
-        do {
-            try await imageLoaderVM.fetchImage(urlString)
-        } catch {
-            print(error)
+            // downloading image from url
+            await imageLoaderVM.loadImage(urlString)
         }
     }
 }

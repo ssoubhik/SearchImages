@@ -6,48 +6,31 @@
 //
 import SwiftUI
 
-// MARK: - Image Loading Error Enumeration
+// MARK: - Image Loader View Model Protocol
 
-enum ImageLoadingError: Error {
-    case badRequest
-    case unsupportedImage
-    case badUrl
+protocol ImageLoaderViewModel: ObservableObject {
+    func loadImage(_ urlString: String) async
 }
 
-// MARK: - Image Loader View Model
+// MARK: - Image Loader View Model Implementation
 
 @MainActor
-class ImageLoaderViewModel: ObservableObject {
-    
+final class ImageLoaderViewModelImpl: ImageLoaderViewModel {
     @Published var uiImage: UIImage?
-    private static let cache = NSCache<NSString, UIImage>()
     
-    func fetchImage(_ urlString: String) async throws {
-        
-        guard let url = URL(string: urlString) else {
-            throw ImageLoadingError.badUrl
-        }
-        
-        let request = URLRequest(url: url)
-        
-        // check in cache
-        if let cachedImage = Self.cache.object(forKey: url.absoluteString as NSString) {
-            uiImage = cachedImage
-        } else {
-            
-            let (data, response) = try await URLSession.shared.data(for: request)
-            guard let httpResponse = response as? HTTPURLResponse,
-                  httpResponse.statusCode == 200 else {
-                throw ImageLoadingError.badRequest
-            }
-            
-            guard let image = UIImage(data: data) else {
-                throw ImageLoadingError.unsupportedImage
-            }
-            
-            // store it in the cache
-            Self.cache.setObject(image, forKey: url.absoluteString as NSString)
-            uiImage = image
+    private let service: ImageLoaderService
+    
+    init(service: ImageLoaderService) {
+        self.service = service
+    }
+    
+    func loadImage(_ urlString: String) async {
+        do {
+            // set uiimage
+            self.uiImage = try await service.fetchImage(urlString)
+        } catch {
+            // print errors in console
+            print(error)
         }
     }
 }
