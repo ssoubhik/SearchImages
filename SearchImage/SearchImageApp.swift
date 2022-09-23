@@ -2,7 +2,7 @@
 //  SearchImageApp.swift
 //  SearchImage
 //
-//  Created by Rhymetech on 23/09/22.
+//  Created by Soubhik Sarkhel on 23/09/22.
 //
 
 import SwiftUI
@@ -11,7 +11,7 @@ import SwiftUI
 struct SearchImageApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SearchView()
         }
     }
 }
